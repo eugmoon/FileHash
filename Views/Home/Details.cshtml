@@ -1,0 +1,48 @@
+@model FileHash.Models.FileMeta
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>File Information</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Filename)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Filename)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Hash)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Hash)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HashType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HashType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Last)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Last)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.FileId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

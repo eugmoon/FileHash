@@ -1,0 +1,63 @@
+@model FileHash.Models.HashViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>File Information</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data" onsubmit="return validate(this);">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <!-- div class="form-group">
+                <label asp-for="Hash" class="control-label"></label>
+                <input asp-for="Hash" class="form-control" />
+                <span asp-validation-for="Hash" class="text-danger"></span>
+            </div -->
+            <div class="form-group">
+                <label asp-for="HashType" class="control-label"></label>
+                <select asp-for="HashType" class="form-control" asp-items="Model.HashTypes"></select>
+                <!-- span asp-validation-for="HashType" class="text-danger"></span -->
+            </div>
+            <div class="form-group">
+                <label asp-for="LocalFile" class="control-label"></label>
+                <input asp-for="LocalFile" class ="form-control" />
+                <span asp-validation-for="LocalFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript" language="javascript">
+        function validate(form) {
+            var inputElement = document.getElementById('LocalFile');
+            var fileSize = inputElement.files[0].size;
+
+            var newInput = document.createElement('input');
+            newInput.type = 'hidden';
+            newInput.name = 'Last';
+            newInput.value = inputElement.files[0].lastModified;
+            form.appendChild(newInput);
+            var newInput2 = document.createElement('input');
+            newInput2.type = 'hidden';
+            newInput2.name = 'Size';
+            newInput2.value = inputElement.files[0].size;
+            form.appendChild(newInput2);
+
+            return true;
+        }
+    </script>
+}

@@ -1,0 +1,7 @@
+.vscode/
+bin/
+Migrations/
+obj/
+Properties/launchSettings.json
+wwwroot/
+.DS_Store

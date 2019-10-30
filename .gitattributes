@@ -1,0 +1,4 @@
+wwwroot/* linguist-vendored
+Migrations/* linguist-generated
+README.md linguist-documentation
+*.cs linguist-detectable=true
